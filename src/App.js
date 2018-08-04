@@ -9,18 +9,18 @@ class BooksApp extends React.Component {
      * https://reacttraining.com/react-router/web/example/basic
      */
     showSearchPage: false,
-    search: ''
+    query: ''
   }
 
-  updateSearch = (search) => {
-    this.setState({ search: search })
+  updateSearch = (query) => {
+    this.setState({ query: query })
   }
       /**
      * TODO: decomposition of this whole thing....
      */
 
   render() {
-    const { search } = this.state
+    const { query } = this.state
     return (
       <div className="app">
         {this.state.showSearchPage ? (
@@ -39,7 +39,7 @@ class BooksApp extends React.Component {
                  <input 
                     type="text" 
                     placeholder="Search by titles or author"
-                    value={search}
+                    value={ query }
                     onChange={(event) => {this.updateSearch(event.target.value)} } />
               </div>
               <div>TEST: {JSON.stringify(this.state)}</div>
