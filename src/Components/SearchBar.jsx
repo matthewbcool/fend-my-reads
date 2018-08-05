@@ -3,7 +3,8 @@ import '../App.css'
 
 class SearchBar extends React.Component {
     state = {
-        query: ""
+        query: "",
+        books: []
     }
     updateSearch = (query) => {
         this.setState({ query: query })

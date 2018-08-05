@@ -17,7 +17,6 @@ class BooksApp extends React.Component {
      */
   }
   render() {
-    
     return (
       <Router>
         <div className="app">
@@ -36,8 +35,7 @@ class BooksApp extends React.Component {
               <div className="open-search">
                 <Link to="/search"><a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a> </Link>
               </div>
-            </div>
-            
+            </div>  
         </div>
       </Router>
     )
