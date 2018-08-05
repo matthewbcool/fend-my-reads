@@ -4,7 +4,6 @@ import './App.css'
 import SearchBar from './Components/SearchBar'
 import BookShelf from './Components/BookShelf'
 import {
-  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
@@ -18,9 +17,8 @@ class BooksApp extends React.Component {
   }
   render() {
     return (
-      <Router>
         <div className="app">
-            <SearchBar />
+            <Route path="/search" render={() => <SearchBar /> } />
             <div className="list-books">
               <div className="list-books-title">
                 <h1>MyReads</h1>
@@ -33,11 +31,10 @@ class BooksApp extends React.Component {
                 </div>
               </div>
               <div className="open-search">
-                <Link to="/search"><a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a> </Link>
+                <Link to="/search">Add a book</Link>
               </div>
             </div>  
         </div>
-      </Router>
     )
   }
 }
