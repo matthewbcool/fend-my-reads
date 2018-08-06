@@ -1,7 +1,6 @@
 import React from 'react'
 import * as BooksAPI from '../BooksAPI'
 import '../App.css'
-import SearchBar from './SearchBar'
 import BookShelf from './BookShelf'
 import { Route, Link} from 'react-router-dom'
 
@@ -21,7 +20,6 @@ class MainComponent extends React.Component {
               </div>
               <div className="open-search">
                 <Link to="/search">Add a book</Link>
-                <Route path="/search" render={() => <SearchBar /> } />
               </div>
             </div>  
     )
