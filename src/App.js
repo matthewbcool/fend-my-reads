@@ -1,5 +1,5 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
+//import * as BooksAPI from './BooksAPI'
 import './App.css'
 import SearchBar from './Components/SearchBar'
 import BookShelf from './Components/BookShelf'
@@ -11,9 +11,8 @@ import {
 class BooksApp extends React.Component {
   state = {
     /**
-     * TODO: import react-router-dom and use <Route> and <Link> components to adjust URL on clicks and display the right component. 
-     * https://reacttraining.com/react-router/web/example/basic
-     */
+     * TODO: double check if link is ok from back button on search
+    */
   }
   render() {
     return (
