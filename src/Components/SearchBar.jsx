@@ -13,25 +13,13 @@ class SearchBar extends React.Component {
         };
     
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
       }
     handleChange(event) {
     this.setState({value: event.target.value});
     console.log(event.target.value);
     }
 
-    handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-    }
     
-    componentDidMount() {
-        BooksAPI.getAll().then((books) => {
-            this.setState( { books: books })
-            console.log(this.state.books);
-            console.log(this.state.books[0].title);
-        }) 
-    }
     updateSearch = (query) => {
     this.setState({ query: query })
     BooksAPI.search(this.state.query).then((query) => {

@@ -3,7 +3,7 @@ import '../App.css'
 
 class Book extends React.Component {
     render() {
-        let bookCover = 'url("http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api")'
+        let bookCover = 'url("http://books.google.com/books/content?id=IOejDAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api")'
         return(
                   <div className="book">
                     <div className="book-top">
