@@ -11,7 +11,7 @@ class BooksApp extends React.Component {
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-        this.setState( { books: books })
+        this.setState( { books }) //don't need to write out value since the key is the same.
         console.log(this.state.books)
     }) 
     /* TODO: render books to UI */
@@ -19,7 +19,7 @@ class BooksApp extends React.Component {
   render() {
     return (
         <div className="app">
-           <Route exact path="/" render={() => <MainComponent /> } />   
+           <Route exact path="/" render={() => <MainComponent books={this.state.books} /> } />   
            <Route path="/search" render={() => <SearchBar /> } />
         </div>
     )
