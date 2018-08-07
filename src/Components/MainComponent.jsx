@@ -5,16 +5,15 @@ import { Link } from 'react-router-dom'
 
 class MainComponent extends React.Component {
   render() {
-    let books = this.props.books
+    let test = this.props.bookList.length > 0 ? this.props.bookList : "empty"
     return (
             <div className="list-books">
               <div className="list-books-title">
                 <h1>MyReads</h1>
               </div>
               <div className="list-books-content">
-              <p> { JSON.stringify(books[0]) } </p>
                 <div>
-                  <BookShelf title="Currently Reading" />
+                  <BookShelf title="Currently Reading" shelfList={this.props.bookList.filter(book => book.shelf === 'currentlyReading').map(book => console.log(book))}  />
                   <BookShelf title="Want to Read" />
                   <BookShelf title="Read" />
                 </div>
@@ -26,5 +25,4 @@ class MainComponent extends React.Component {
     )
   }
 }
-
 export default MainComponent

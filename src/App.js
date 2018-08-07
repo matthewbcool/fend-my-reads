@@ -7,20 +7,26 @@ import { Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    bookList: [],
   }
+  
+
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-        this.setState( { books }) //don't need to write out value since the key is the same.
-        console.log(this.state.books)
+    BooksAPI.getAll().then((bookList) => {
+        this.setState( { bookList }) //don't need to write out value since the key is the same.
     }) 
     /* TODO: render books to UI */
 }
   render() {
     return (
         <div className="app">
-           <Route exact path="/" render={() => <MainComponent books={this.state.books} /> } />   
-           <Route path="/search" render={() => <SearchBar /> } />
+           <Route exact path="/" render={() => 
+           <MainComponent 
+              bookList={this.state.bookList} /> 
+          }/>   
+           <Route path="/search" render={() => 
+           <SearchBar /> 
+           }/>
         </div>
     )
   }
