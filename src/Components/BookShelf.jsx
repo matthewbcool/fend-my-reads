@@ -1,11 +1,10 @@
 import React from 'react'
 import '../App.css'
-import Book from './Book'
+//import Book from './Book'
 
 // TO DO: render JSON info to Books
 class BookShelf extends React.Component {
     render() {
-        console.log(this.props.wantToRead, this.props.currentlyReading, this.props.read)
         return(
             <div className="bookshelf">
             <h2 className="bookshelf-title">{this.props.title}</h2>
