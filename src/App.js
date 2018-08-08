@@ -10,7 +10,6 @@ class BooksApp extends React.Component {
     bookList: [],
   }
   
-
   componentDidMount() {
     BooksAPI.getAll().then((bookList) => {
         this.setState( { bookList }) //don't need to write out value since the key is the same.

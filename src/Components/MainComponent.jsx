@@ -5,7 +5,13 @@ import { Link } from 'react-router-dom'
 
 class MainComponent extends React.Component {
   render() {
-    let test = this.props.bookList.length > 0 ? this.props.bookList : "empty"
+    let currentlyReading = []
+    let wantToRead = []
+    let read = []
+    
+    this.props.bookList.filter(book => book.shelf === 'currentlyReading').map(book => currentlyReading.push(book))
+    this.props.bookList.filter(book => book.shelf === 'wantToRead').map(book => wantToRead.push(book))
+    this.props.bookList.filter(book => book.shelf === 'read').map(book => read.push(book))
     return (
             <div className="list-books">
               <div className="list-books-title">
@@ -13,9 +19,9 @@ class MainComponent extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <BookShelf title="Currently Reading" shelfList={this.props.bookList.filter(book => book.shelf === 'currentlyReading').map(book => console.log(book))}  />
-                  <BookShelf title="Want to Read" />
-                  <BookShelf title="Read" />
+                  <BookShelf title="Currently Reading" currentlyReading ={currentlyReading}  />
+                  <BookShelf title="Want to Read" wantToRead = {wantToRead}  />
+                  <BookShelf title="Read" read = {read} />
                 </div>
               </div>
               <div className="open-search">
