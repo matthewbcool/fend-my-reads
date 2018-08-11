@@ -13,7 +13,8 @@ class BooksApp extends React.Component {
       authors: '',
       publisher: '',
       publishedDate: '',
-
+      id: '',
+      shelf: '',
     }],
   }
   
