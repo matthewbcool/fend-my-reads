@@ -15,11 +15,9 @@ class BookShelf extends React.Component {
             <h2 className="bookshelf-title">{this.props.title}</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                  {this.props.bookList.filter(book => book.shelf === 'currentlyReading').map(book => {
+                  {this.props.bookList.map(book => {
                       return <li key= {book.id} > <Book book = {book} /> </li>} )
                   }
-                  {JSON.stringify(this.props.wantToRead)}
-                  {JSON.stringify(this.props.read)}
               </ol>
             </div>
           </div>

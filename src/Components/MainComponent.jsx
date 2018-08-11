@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 class MainComponent extends React.Component {
   render() {
     //TO DO: rework the filter into the bookshelf component and give all shelves the same prop.
+    let currentlyReading = this.props.bookList.filter(book => book.shelf === 'currentlyReading')
+    let wantToRead = this.props.bookList.filter(book => book.shelf === 'wantToRead')
+    let read = this.props.bookList.filter(book => book.shelf === 'read')
     return (
             <div className="list-books">
               <div className="list-books-title">
@@ -13,9 +16,9 @@ class MainComponent extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <BookShelf title="Currently Reading" bookList = {this.props.bookList}  />
-                  <BookShelf title="Want to Read" bookList = {this.props.bookList}  />
-                  <BookShelf title="Read" bookList = {this.props.bookList} />
+                  <BookShelf title="Currently Reading" bookList = {currentlyReading}  />
+                  <BookShelf title="Want to Read" bookList = {wantToRead}  />
+                  <BookShelf title="Read" bookList = {read} />
                 </div>
               </div>
               <div className="open-search">

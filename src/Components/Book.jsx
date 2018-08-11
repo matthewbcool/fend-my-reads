@@ -3,7 +3,6 @@ import '../App.css'
 
 class Book extends React.Component {
     render() {
-        console.log(this.props.book)
         let bookCover = 'url(' + this.props.book.imageLinks.thumbnail + ')'
         return(
                 <div className="book">
