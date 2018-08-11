@@ -7,7 +7,14 @@ import { Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    bookList: [],
+    bookList: [{
+      title: '',
+      subtitle: '',
+      authors: '',
+      publisher: '',
+      publishedDate: '',
+
+    }],
   }
   
   componentDidMount() {

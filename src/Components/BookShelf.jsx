@@ -2,14 +2,14 @@ import React from 'react'
 import '../App.css'
 import Book from './Book'
 
-// TO DO: render JSON info to Books
+// TO DO: render JSON info to Books ---  fix undefined value in props
 class BookShelf extends React.Component {
     render() {
-
+        console.log(this.props.bookList[0])
         if (this.props.bookList !== 'undefined') {
 
-        this.props.bookList.filter(book => book.shelf === 'wantToRead').map(book => wantToRead.push(book))
-        this.props.bookList.filter(book => book.shelf === 'read').map(book => read.push(book))
+        //this.props.bookList.filter(book => book.shelf === 'wantToRead').map(book => wantToRead.push(book))
+        //this.props.bookList.filter(book => book.shelf === 'read').map(book => read.push(book))
         } else {console.log('whaaaa??')}
         console.log(this.props.currentlyReading, this.props.wantToRead, this.props.read)
         return(
