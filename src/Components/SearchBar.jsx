@@ -59,12 +59,13 @@ class SearchBar extends React.Component {
               </div>
             </div>
             <div className="search-books-results">
-                    {this.state.queryObject.map(book => {
+              <ol className="books-grid">
+              {this.state.queryObject.map(book => {
                         console.log(book)
                         return <li key={book.id} > <Book book={book} /> </li>
                     })
                 }
-              <ol className="books-grid"></ol>
+              </ol>
             </div>
           </div>
         )
