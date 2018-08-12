@@ -1,6 +1,9 @@
 import React from 'react'
 import '../App.css'
 
+
+
+
 class Book extends React.Component {
     render() {
         let bookCover = 'url(' + this.props.book.imageLinks.thumbnail + ')'
