@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
                 publishedDate: '',
                 id: '',
                 shelf: '',
-                imageLinks: '',
+                imageLinks: {thumbnail: ''},
               }],
               query: '',
               event: ''
@@ -36,11 +36,12 @@ class SearchBar extends React.Component {
         } else {
     this.setState({ query: query })
     BooksAPI.search(this.state.query).then((query) => {
-        this.setState( {queryObject: query} )
-        console.log(this.state.queryObject) 
+        this.setState( {queryObject: query} ) 
     })
  }
     }
+
+
 
     render() {
         return(
@@ -61,8 +62,11 @@ class SearchBar extends React.Component {
             <div className="search-books-results">
               <ol className="books-grid">
               {this.state.queryObject.map(book => {
-                        console.log(book)
+                  if (this.state.queryObject[0].title === "" ) {
+                      return <li key={book.id}>books will appear here</li>
+                  } else {
                         return <li key={book.id} > <Book book={book} /> </li>
+                  }
                     })
                 }
               </ol>
