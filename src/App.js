@@ -5,6 +5,7 @@ import MainComponent from './Components/MainComponent'
 import SearchBar from './Components/SearchBar'
 import { Route } from 'react-router-dom'
 
+
 class BooksApp extends React.Component {
   state = {
     bookList: [{
@@ -24,12 +25,21 @@ class BooksApp extends React.Component {
     }) 
     /* TODO: render books to UI */
 }
+
+  moveBookToShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+
+    BooksAPI.getAll().then((bookList) => {
+      this.setState({bookList})
+    })
+  }
   render() {
     return (
         <div className="app">
            <Route exact path="/" render={() => 
            <MainComponent 
-              bookList={this.state.bookList} /> 
+              bookList={this.state.bookList}
+              moveBookToShelf= {this.moveBookToShelf} /> 
           }/>   
            <Route path="/search" render={() => 
            <SearchBar /> 

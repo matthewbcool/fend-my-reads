@@ -31,18 +31,18 @@ class SearchBar extends React.Component {
 
     updateSearch = (query) => {
         //needed a way to not make the call so that I wouldn't return an undefined object
-        if (query.length < 2) {
-            this.setState({ query: query })
-        } else {
-            this.setState({ query: query })
+        this.setState({ query: query})
+        if (query.length > 2) {
             BooksAPI.search(this.state.query).then((query) => {
                 //check to see if we are throwing an error -- namley .map() is not a function --resets to empty array so we can still call .map
                 if (query.error) {
                     this.setState({ queryObject: [] })
                 } else {
-                    this.setState({ queryObject: query })
+                    this.setState({ queryObject: query})
                 }
             })
+        } else {
+            this.setState({ queryObject: [] })
         }
     }
 
@@ -72,7 +72,6 @@ class SearchBar extends React.Component {
                                     'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
                                 </li>
                             } else {
-                                console.log(book)
                                 return <li key={book.id} > <Book book={book} /> </li>
                             }
                         })}
