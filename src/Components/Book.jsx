@@ -7,7 +7,7 @@ import '../App.css'
 class Book extends React.Component {
     render() {
         let backUpCover = "url('https://mdn.mozillademos.org/files/7693/catfront.png')"
-        let bookCover = this.props.imageLinks ? backUpCover : 'url(' + this.props.book.imageLinks.thumbnail + ')'
+        let bookCover = this.props.book.imageLinks ? 'url(' + this.props.book.imageLinks.thumbnail + ')': backUpCover
         return(
                 <div className="book">
                 <div className="book-top">
