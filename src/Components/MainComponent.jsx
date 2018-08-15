@@ -16,7 +16,7 @@ class MainComponent extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <BookShelf title="Currently Reading" bookList = {currentlyReading}  />
+                  <BookShelf title="Currently Reading" bookList = {currentlyReading} moveBookToShelf={this.props.moveBookToShelf}  />
                   <BookShelf title="Want to Read" bookList = {wantToRead}  />
                   <BookShelf title="Read" bookList = {read} />
                 </div>
