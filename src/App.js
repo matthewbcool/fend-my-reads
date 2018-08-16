@@ -23,7 +23,6 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((bookList) => {
         this.setState( { bookList }) //don't need to write out value since the key is the same.
     }) 
-    /* TODO: render books to UI */
 }
 
   moveBookToShelf = (book, shelf) => {
