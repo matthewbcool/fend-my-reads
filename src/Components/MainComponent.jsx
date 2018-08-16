@@ -17,8 +17,8 @@ class MainComponent extends React.Component {
               <div className="list-books-content">
                 <div>
                   <BookShelf title="Currently Reading" bookList = {currentlyReading} moveBookToShelf={this.props.moveBookToShelf}  />
-                  <BookShelf title="Want to Read" bookList = {wantToRead}  />
-                  <BookShelf title="Read" bookList = {read} />
+                  <BookShelf title="Want to Read" bookList = {wantToRead} moveBookToShelf={this.props.moveBookToShelf}  />
+                  <BookShelf title="Read" bookList = {read} moveBookToShelf={this.props.moveBookToShelf} />
                 </div>
               </div>
               <div className="open-search">
