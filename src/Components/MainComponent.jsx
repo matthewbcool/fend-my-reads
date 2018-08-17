@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 class MainComponent extends React.Component {
   render() {
-    //TO DO: rework the filter into the bookshelf component and give all shelves the same prop.
+    //filter out our shelves so they contain/render the proper list of books, then pass them as props for the book components to use
     let currentlyReading = this.props.bookList.filter(book => book.shelf === 'currentlyReading')
     let wantToRead = this.props.bookList.filter(book => book.shelf === 'wantToRead')
     let read = this.props.bookList.filter(book => book.shelf === 'read')

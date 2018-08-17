@@ -33,7 +33,7 @@ class SearchBar extends React.Component {
         //needed a way to not make the call so that I wouldn't return an undefined object
         this.setState({ query: query})
         if (query.length > 2) {
-            BooksAPI.search(this.state.query).then((query) => {
+            BooksAPI.search(query).then((query) => {
                 //check to see if we are throwing an error -- namley .map() is not a function --resets to empty array so we can still call .map
                 if (query.error) {
                     this.setState({ queryObject: [] })
