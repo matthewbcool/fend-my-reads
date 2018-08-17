@@ -1,8 +1,8 @@
 import React from 'react'
 import * as BooksAPI from '../BooksAPI'
 import '../App.css'
-import { Link } from 'react-router-dom'
 import Book from '../Components/Book'
+import { Link } from 'react-router-dom'
 
 class SearchBar extends React.Component {
     constructor(props) {
