@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
         this.setState({ query: query})
         if (query.length > 2) {
             BooksAPI.search(query).then((query) => {
-                //check to see if we are throwing an error -- namley .map() is not a function --resets to empty array so we can still call .map
+                //check for error --resets to empty array so we can still call .map
                 if (query.error) {
                     this.setState({ queryObject: [] })
                 } else {
