@@ -28,7 +28,6 @@ class SearchBar extends React.Component {
         this.setState({ value: event.target.value });
     }
 
-
     updateSearch = (query) => {
         //needed a way to not make the call so that I wouldn't return an undefined object
         this.setState({ query: query})
@@ -45,8 +44,6 @@ class SearchBar extends React.Component {
             this.setState({ queryObject: [] })
         }
     }
-
-
 
     render() {
         return (
@@ -67,7 +64,23 @@ class SearchBar extends React.Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.queryObject.map(book => {
-                            let shelf="none"
+                            let matchedBookShelfValue;
+                             const doesBookIdMatch = (book) => {
+                                //loop through all the book id's in the current bookList
+                                let matchesID = false;
+                                for (let i=0; i < this.props.bookList.length; i++) {
+                                    //check if any of the book id match the current book id
+                                    console.log(this.props.bookList[i].shelf)
+                                    if (this.props.bookList[i].id === book.id) {
+                                     matchesID = true; 
+                                     matchedBookShelfValue = this.props.bookList[i].shelf
+                                    }
+                                }
+                                return matchesID
+                            }
+
+                            //if the book id does not equal any of the book ids in our current list, set book.shelf to none, else shelf is none
+                            let shelf= doesBookIdMatch(book) ? matchedBookShelfValue : "none"
                             if (this.state.queryObject[0].title === "") {
                                 return <li key={book.id}>
                                     'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
